@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-landing",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "8-bit NES-style developer landing — test assignment",
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "preview": "npm run preview -w web"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@vercel/node": "^5.3.0"
+  }
+}

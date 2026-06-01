@@ -1,0 +1,101 @@
+// NES palette — SPEC.md §4
+$color-bg: #1d1d6e;
+$color-panel: #5c94fc;
+$color-text: #fcfcfc;
+$color-accent: #fce94f;
+$color-success: #00a800;
+$color-error: #e40058;
+$color-border: #000000;
+
+$font-pixel: 'Press Start 2P', cursive;
+$font-mono: 'JetBrains Mono', monospace;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: $font-mono;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+
+  &__crt-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background: repeating-linear-gradient(
+      0deg,
+      rgb(0 0 0 / 15%) 0,
+      rgb(0 0 0 / 15%) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  }
+
+  &__main {
+    position: relative;
+    z-index: 1;
+    padding: 2rem 1rem;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+}
+
+.hero {
+  text-align: center;
+
+  &__blink-text {
+    font-family: $font-pixel;
+    font-size: 0.75rem;
+    color: $color-accent;
+    animation: hero-blink 1s step-end infinite;
+  }
+
+  &__title {
+    font-family: $font-pixel;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: 1.6;
+    text-shadow: 2px 2px 0 $color-border, 0 0 8px rgb(252 233 79 / 40%);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    margin: 0 0 1rem;
+  }
+
+  &__hint {
+    font-size: 0.875rem;
+    opacity: 0.85;
+  }
+}
+
+@keyframes hero-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__blink-text {
+    animation: none;
+  }
+
+  .page__crt-overlay {
+    display: none;
+  }
+}
