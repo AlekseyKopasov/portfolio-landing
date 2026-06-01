@@ -6,7 +6,6 @@ node_modules/
 
 # Build
 dist/
-apps/web/dist/
 
 # Environment
 .env

@@ -27,7 +27,7 @@ git push -u origin main
    | Framework Preset | Vite (или Other) |
    | Root Directory | `.` |
    | Build Command | `npm run build` |
-   | Output Directory | `apps/web/dist` |
+   | Output Directory | `dist` |
    | Install Command | `npm install` |
 
 5. **Deploy** (первый деплой без SMTP — форма вернёт 501, это ожидаемо).
@@ -67,17 +67,17 @@ Commit: dad6940   # или новее; 357e1c6 — старая версия с 
 После `npm install`:
 
 ```text
-audited 140+ packages   # норма для monorepo
-audited 32 packages     # ошибка: Root Directory = apps/web → смените на «.» (корень репо)
+audited 140+ packages   # норма
+audited 36 packages     # ошибка: неверный Root Directory или старая структура monorepo
 ```
 
 **Vercel → Project Settings → General:**
 
 | Параметр | Значение |
 |----------|----------|
-| Root Directory | пусто или `.` (не `apps/web`) |
+| Root Directory | пусто или `.` (корень репо; структура без `apps/web`) |
 | Node.js Version | **20.x** |
 | Build Command | `npm run build` (из `vercel.json`) |
-| Output Directory | `apps/web/dist` |
+| Output Directory | `dist` |
 
 **Deployments** → последний деплой с `main` → **⋯ → Redeploy** (не старый деплой с `357e1c6`).

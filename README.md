@@ -31,7 +31,7 @@ npx vercel dev
 | Команда | Действие |
 |---------|----------|
 | `npm run dev` | Dev-сервер Vite |
-| `npm run build` | Production-сборка → `apps/web/dist` |
+| `npm run build` | Production-сборка → `dist/` |
 | `npm run preview` | Просмотр сборки |
 
 ## Деплой на Vercel (автодеплой из GitHub)
@@ -41,7 +41,7 @@ npx vercel dev
 3. Настройки (обычно подхватываются из `vercel.json`):
    - **Root Directory:** `.`
    - **Build Command:** `npm run build`
-   - **Output Directory:** `apps/web/dist`
+   - **Output Directory:** `dist`
 4. **Settings → Environment Variables** — переменные из `.env.example`.
 5. Deploy. Каждый `push` в `main` обновляет production.
 

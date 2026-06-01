@@ -53,19 +53,15 @@
 
 ```text
 /
-├── SPEC.md                 # это ТЗ
-├── README.md               # для ревьюера
+├── SPEC.md
+├── README.md
 ├── vercel.json
-├── package.json            # workspaces, скрипты корня
-├── .env.example
-├── .gitignore
+├── package.json
+├── index.html
+├── src/                    # Vite + SCSS
+├── public/
 ├── api/
-│   └── contact.ts          # POST — форма обратной связи
-├── apps/
-│   └── web/                # Vite-приложение
-│       ├── src/
-│       ├── index.html
-│       └── package.json
+│   └── contact.ts
 └── not-to-prod/            # только локально, в Git не попадает
 ```
 
@@ -242,7 +238,7 @@ ci: add github actions build check
 2. [vercel.com](https://vercel.com) → **Add New Project** → Import repo.
 3. **Root Directory**: `/` (корень монорепо).
 4. **Build Command**: `npm run build`
-5. **Output Directory**: `apps/web/dist`
+5. **Output Directory**: `dist`
 6. **Environment Variables** — переменные из §6.
 7. Deploy → URL `*.vercel.app`.
 
