@@ -55,3 +55,29 @@ vercel dev        # фронт + /api/*
 
 - Сайт: `https://ваш-проект.vercel.app`
 - API: `curl -X POST https://ваш-проект.vercel.app/api/contact` → `501` до реализации формы
+
+## 6. Если билд снова падает (чеклист по логам)
+
+В начале лога должно быть:
+
+```text
+Commit: dad6940   # или новее; 357e1c6 — старая версия с Vite 8
+```
+
+После `npm install`:
+
+```text
+audited 140+ packages   # норма для monorepo
+audited 32 packages     # ошибка: Root Directory = apps/web → смените на «.» (корень репо)
+```
+
+**Vercel → Project Settings → General:**
+
+| Параметр | Значение |
+|----------|----------|
+| Root Directory | пусто или `.` (не `apps/web`) |
+| Node.js Version | **20.x** |
+| Build Command | `npm run build` (из `vercel.json`) |
+| Output Directory | `apps/web/dist` |
+
+**Deployments** → последний деплой с `main` → **⋯ → Redeploy** (не старый деплой с `357e1c6`).
