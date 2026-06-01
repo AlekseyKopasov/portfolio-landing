@@ -19,7 +19,8 @@ git push -u origin main
 
 1. Войти на [vercel.com](https://vercel.com) (можно через GitHub).
 2. **Add New… → Project** → Import репозитория.
-3. Проверить настройки (из `vercel.json`):
+3. В **Project Settings → General → Node.js Version** выбрать **20.x** (на Node 24 сборка Vite/rolldown падала с `MODULE_NOT_FOUND`).
+4. Проверить настройки (из `vercel.json`):
 
    | Поле | Значение |
    |------|----------|
@@ -29,8 +30,8 @@ git push -u origin main
    | Output Directory | `apps/web/dist` |
    | Install Command | `npm install` |
 
-4. **Deploy** (первый деплой без SMTP — форма вернёт 501, это ожидаемо).
-5. После этапа 4 формы: **Settings → Environment Variables** — скопировать из `.env.example`.
+5. **Deploy** (первый деплой без SMTP — форма вернёт 501, это ожидаемо).
+6. После этапа 4 формы: **Settings → Environment Variables** — скопировать из `.env.example`.
 
 ## 3. Автодеплой
 
