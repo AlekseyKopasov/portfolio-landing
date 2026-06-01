@@ -13,10 +13,10 @@
 
   &__link {
     display: inline-block;
-    padding: $space-xs $space-sm;
-    font-family: $font-pixel;
-    font-size: 0.5rem;
-    line-height: 1.6;
+    padding: $space-sm;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.4;
     color: $color-text;
     text-decoration: none;
     border: 2px solid transparent;
@@ -33,6 +33,7 @@
 
 @media (max-width: 480px) {
   .nav__link {
-    font-size: 0.4375rem;
+    padding: $space-xs $space-sm;
+    font-size: 0.875rem;
   }
 }

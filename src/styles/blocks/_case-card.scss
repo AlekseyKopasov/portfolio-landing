@@ -3,7 +3,7 @@
 
 .case-card {
   @include nes-panel;
-  padding: $space-md;
+  padding: $space-lg;
   background: $color-panel-dark;
 
   &__grid {
@@ -22,15 +22,16 @@
 
   &__title {
     margin: 0;
-    font-family: $font-pixel;
-    font-size: 0.5625rem;
-    line-height: 1.6;
+    font-size: 1.0625rem;
+    line-height: 1.45;
+    color: $color-accent-soft;
   }
 
   &__nda {
     padding: 2px $space-xs;
-    font-family: $font-pixel;
-    font-size: 0.4375rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.4;
     color: $color-border;
     background: $color-muted;
     border: 2px solid $color-border;
@@ -45,7 +46,8 @@
     grid-template-columns: 5rem 1fr;
     gap: $space-sm;
     margin-bottom: $space-xs;
-    font-size: 0.875rem;
+    font-size: 1rem;
+    line-height: 1.45;
   }
 
   &__meta-term {
@@ -69,7 +71,8 @@
   &__tasks {
     margin: 0 0 $space-sm;
     padding-left: 1.125rem;
-    font-size: 0.9375rem;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   &__task {
@@ -79,8 +82,8 @@
   &__result,
   &__personal {
     margin: 0 0 $space-xs;
-    font-size: 0.9375rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }
 

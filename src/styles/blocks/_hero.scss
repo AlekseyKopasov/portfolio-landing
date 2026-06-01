@@ -7,20 +7,23 @@
   &__blink-text {
     margin: 0 0 $space-md;
     font-family: $font-pixel;
-    font-size: 0.75rem;
+    font-size: clamp(0.75rem, 2vw, 0.9375rem);
+    line-height: 1.7;
     color: $color-accent;
     animation: hero-blink 1s step-end infinite;
   }
 
   &__subtitle {
     margin: 0 0 $space-xs;
-    font-size: 1.125rem;
+    font-size: clamp(1.25rem, 3vw, 1.625rem);
+    line-height: 1.45;
     font-weight: 700;
   }
 
   &__tagline {
     margin: 0 0 $space-md;
-    font-size: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
     color: $color-accent-soft;
   }
 
@@ -36,7 +39,8 @@
 
   &__meta-item {
     padding: $space-xs $space-sm;
-    font-size: 0.875rem;
+    font-size: 1rem;
+    line-height: 1.45;
     border: 2px solid $color-border;
     background: $color-panel-dark;
   }
@@ -53,15 +57,16 @@
 
   &__direction-item {
     padding: $space-xs $space-sm;
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
+    line-height: 1.45;
     background: rgb(0 0 0 / 20%);
     border: 2px solid $color-border;
   }
 
   &__text {
     margin: 0 0 $space-sm;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.125rem;
+    line-height: 1.75;
     text-align: left;
   }
 
@@ -70,8 +75,8 @@
     margin-top: $space-md;
     padding: $space-md $space-lg;
     font-family: $font-pixel;
-    font-size: 0.625rem;
-    line-height: 1.6;
+    font-size: clamp(0.6875rem, 2vw, 0.8125rem);
+    line-height: 1.8;
     color: $color-border;
     text-decoration: none;
     background: $color-accent;

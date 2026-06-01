@@ -3,13 +3,15 @@
 .chip {
   display: inline-block;
   padding: $space-xs $space-sm;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.35;
   color: $color-text;
   background: $color-panel-dark;
   border: 2px solid $color-border;
   image-rendering: pixelated;
 
   &--small {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }
