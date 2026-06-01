@@ -8,14 +8,14 @@
 
 - **Frontend:** Vite 6, TypeScript, SCSS, БЭМ
 - **API:** Vercel Serverless (Node.js), Zod, Nodemailer
-- **AI:** OpenAI Chat Completions (`/api/ai/polish`)
+- **AI:** Groq / Gemini / OpenAI (`/api/ai/polish`) — по умолчанию бесплатный **Groq**
 - **Деплой:** Vercel + GitHub
 
 ## Локальный запуск
 
 ```bash
 npm install
-cp .env.example .env   # заполнить SMTP и при необходимости OPENAI_API_KEY
+cp .env.example .env   # SMTP + GROQ_API_KEY (или GEMINI_API_KEY)
 npm run dev            # только фронт — http://localhost:5173
 npx vercel dev         # фронт + /api/*
 ```
@@ -40,17 +40,28 @@ npx vercel dev         # фронт + /api/*
 Скопировать из `.env.example` в **Project → Settings → Environment Variables** (Production):
 
 - `SMTP_*`, `MAIL_FROM`, `MAIL_TO` — для формы
-- `OPENAI_API_KEY` — для AI (опционально)
-- `OPENAI_BASE_URL`, `OPENAI_MODEL` — при необходимости
+- **AI (бесплатно, один ключ):**
+  - **`GROQ_API_KEY`** — [console.groq.com/keys](https://console.groq.com/keys) (рекомендуется)
+  - или **`GEMINI_API_KEY`** — [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+- `OPENAI_API_KEY` — только если нужен платный OpenAI
+
+Проверка: `https://ваш-сайт.vercel.app/api/ai/status` → `"configured": true`.
 
 После изменения env — **Redeploy**.
+
+### Groq за 2 минуты (бесплатно)
+
+1. Регистрация на [console.groq.com](https://console.groq.com)
+2. **API Keys** → Create API Key
+3. Vercel → **Environment Variables** → `GROQ_API_KEY` = ключ → **Production**
+4. **Redeploy**
 
 ## AI-инструменты в разработке
 
 | Инструмент | Для чего |
 |------------|----------|
 | **Cursor** | Структура проекта, SCSS/БЭМ, API, README |
-| **OpenAI API** | Кнопка «AI — CLEARER TEXT» на проде |
+| **Groq / Gemini API** | Кнопка «AI — CLEARER TEXT» (бесплатный tier) |
 
 ### С помощью AI
 
@@ -71,6 +82,6 @@ npx vercel dev         # фронт + /api/*
 ## Статус
 
 - ✅ Лендинг, форма, API почты
-- ✅ AI polish (нужен `OPENAI_API_KEY` на Vercel)
+- ✅ AI polish (нужен `GROQ_API_KEY` или `GEMINI_API_KEY` на Vercel)
 
 Чеклист: [SPEC.md §12](./SPEC.md#12-критерии-приёмки-чеклист).

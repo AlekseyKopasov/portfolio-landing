@@ -26,11 +26,11 @@ export function initAiPolish(): void {
 
       if (!data.configured) {
         polishBtn.disabled = true;
-        polishBtn.title = 'Добавьте OPENAI_API_KEY в Vercel → Environment Variables';
+        polishBtn.title = 'Добавьте GROQ_API_KEY или GEMINI_API_KEY в Vercel';
         setAiStatus(
           aiStatus,
           'unavailable',
-          'AI на проде не подключён — комментарий можно написать вручную. Ключ: OPENAI_API_KEY в Vercel.',
+          'AI не подключён. Бесплатно: Groq или Google Gemini — ключ в Vercel (см. README).',
         );
       }
     } catch {

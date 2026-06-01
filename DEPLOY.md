@@ -38,15 +38,15 @@ git push -u origin main
 | Переменная | Нужна для |
 |------------|-----------|
 | `SMTP_*`, `MAIL_FROM`, `MAIL_TO` | Отправка формы |
-| `OPENAI_API_KEY` | Кнопка **AI — CLEARER TEXT** |
-| `OPENAI_MODEL` | опционально, по умолчанию `gpt-4o-mini` |
-| `OPENAI_BASE_URL` | опционально, если не OpenAI (совместимый API) |
+| `GROQ_API_KEY` | **AI бесплатно** (рекомендуется) — [console.groq.com/keys](https://console.groq.com/keys) |
+| `GEMINI_API_KEY` | AI бесплатно (альтернатива) — [aistudio.google.com/apikey](https://aistudio.google.com/apikey) |
+| `OPENAI_API_KEY` | AI платно (не обязателен) |
 
 После добавления переменных — **Deployments → Redeploy** (без redeploy env не подхватится).
 
 Проверка AI: откройте `https://ваш-сайт.vercel.app/api/ai/status` — должно быть `{"configured":true,...}`.
 
-Ключ OpenAI: [platform.openai.com/api-keys](https://platform.openai.com/api-keys) → Create secret key → вставить в Vercel (Production).
+**Бесплатный AI:** зарегистрируйтесь на Groq → API Key → в Vercel переменная `GROQ_API_KEY` → Redeploy.
 
 ## 3. Автодеплой
 
