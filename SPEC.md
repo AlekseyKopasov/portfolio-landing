@@ -283,11 +283,11 @@ ci: add github actions build check
 
 | # | Этап | Статус |
 |---|------|--------|
-| 0 | SPEC, скелет, `.gitignore`, Git, Vercel config | 🔄 в работе |
-| 1 | NES-токены SCSS, layout, секции-заглушки | ⬜ |
-| 2 | Контент из резюме (кейсы, стек, about) | ⬜ |
-| 3 | Форма UI + состояния | ⬜ |
-| 4 | `POST /api/contact` + SMTP | ⬜ |
+| 0 | SPEC, скелет, `.gitignore`, Git, Vercel config | ✅ |
+| 1 | NES-токены SCSS, layout, секции | ✅ |
+| 2 | Контент из резюме (кейсы, стек, about) | ✅ |
+| 3 | Форма UI + состояния | ✅ |
+| 4 | `POST /api/contact` + SMTP | ✅ (нужны env на Vercel) |
 | 5 | README, полировка a11y/адаптив | ⬜ |
 | 6 | AI bonus | ⬜ |
 

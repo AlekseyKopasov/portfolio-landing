@@ -1,0 +1,57 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.level-card {
+  @include nes-panel;
+  padding: $space-lg;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-sm $space-md;
+    margin-bottom: $space-md;
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: $space-xs $space-sm;
+    font-family: $font-pixel;
+    font-size: 0.5rem;
+    color: $color-border;
+    background: $color-accent;
+    border: 2px solid $color-border;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $font-pixel;
+    font-size: clamp(0.625rem, 2.5vw, 0.875rem);
+    line-height: 1.6;
+    @include pixel-text-shadow;
+  }
+
+  &__lead {
+    margin: 0 0 $space-md;
+    font-size: 1rem;
+    color: $color-accent-soft;
+  }
+
+  &__subtitle {
+    margin: $space-lg 0 $space-sm;
+    font-family: $font-pixel;
+    font-size: 0.5rem;
+    color: $color-accent;
+  }
+
+  &__list {
+    margin: 0 0 $space-md;
+    padding-left: 1.25rem;
+  }
+
+  &__list-item {
+    margin-bottom: $space-sm;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}

@@ -1,0 +1,111 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.form {
+  &__legend {
+    margin: 0 0 $space-md;
+    font-family: $font-pixel;
+    font-size: 0.5625rem;
+    color: $color-accent;
+  }
+
+  &__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  &__field {
+    margin-bottom: $space-md;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: $space-xs;
+    font-size: 0.9375rem;
+    font-weight: 700;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: $space-sm $space-md;
+    font-family: $font-mono;
+    font-size: 1rem;
+    color: $color-text;
+    background: rgb(0 0 0 / 25%);
+    border: $border-pixel solid $color-border;
+    box-shadow: inset 2px 2px 0 rgb(0 0 0 / 30%);
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+
+    &--error {
+      border-color: $color-error;
+      box-shadow: inset 0 0 0 2px rgb(228 0 88 / 40%);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 6rem;
+  }
+
+  &__error {
+    min-height: 1.25rem;
+    margin: $space-xs 0 0;
+    font-size: 0.875rem;
+    color: $color-error;
+  }
+
+  &__submit {
+    width: 100%;
+    padding: $space-md;
+    font-family: $font-pixel;
+    font-size: 0.625rem;
+    line-height: 1.6;
+    color: $color-border;
+    cursor: pointer;
+    background: $color-accent;
+    border: $border-pixel solid $color-border;
+    box-shadow: $border-pixel $border-pixel 0 $color-border;
+    transition: transform 0.1s ease;
+
+    &:hover:not(:disabled) {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 $color-border;
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+  }
+
+  &__status {
+    min-height: 1.5rem;
+    margin: $space-md 0 0;
+    font-size: 0.9375rem;
+
+    &--loading {
+      color: $color-accent-soft;
+    }
+
+    &--success {
+      color: $color-success;
+      font-weight: 700;
+    }
+
+    &--error {
+      color: $color-error;
+      font-weight: 700;
+    }
+  }
+}

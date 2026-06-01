@@ -1,0 +1,38 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.nav {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xs $space-sm;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: $space-xs $space-sm;
+    font-family: $font-pixel;
+    font-size: 0.5rem;
+    line-height: 1.6;
+    color: $color-text;
+    text-decoration: none;
+    border: 2px solid transparent;
+
+    &:hover {
+      color: $color-accent-soft;
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .nav__link {
+    font-size: 0.4375rem;
+  }
+}

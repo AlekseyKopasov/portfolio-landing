@@ -1,0 +1,15 @@
+@use '../variables' as *;
+
+.chip {
+  display: inline-block;
+  padding: $space-xs $space-sm;
+  font-size: 0.875rem;
+  color: $color-text;
+  background: $color-panel-dark;
+  border: 2px solid $color-border;
+  image-rendering: pixelated;
+
+  &--small {
+    font-size: 0.75rem;
+  }
+}

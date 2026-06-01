@@ -1,0 +1,14 @@
+@use '../variables' as *;
+
+.inventory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    margin: 0;
+  }
+}

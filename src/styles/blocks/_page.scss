@@ -1,0 +1,83 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.page {
+  position: relative;
+  min-height: 100vh;
+
+  &__skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 200;
+    padding: $space-sm $space-md;
+    background: $color-accent;
+    color: $color-border;
+    font-family: $font-pixel;
+    font-size: 0.625rem;
+    text-decoration: none;
+
+    &:focus {
+      left: $space-md;
+      top: $space-md;
+      @include focus-ring;
+    }
+  }
+
+  &__crt-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background: repeating-linear-gradient(
+      0deg,
+      rgb(0 0 0 / 12%) 0,
+      rgb(0 0 0 / 12%) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  }
+
+  &__header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-md;
+    padding: $space-md;
+    background: rgb(29 29 110 / 95%);
+    border-bottom: $border-pixel solid $color-border;
+  }
+
+  &__logo {
+    margin: 0;
+    font-family: $font-pixel;
+    font-size: 0.625rem;
+    color: $color-accent;
+    @include pixel-text-shadow;
+  }
+
+  &__main {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: $space-xl $space-md $space-lg;
+  }
+
+  &__footer {
+    padding: $space-lg $space-md $space-xl;
+    text-align: center;
+  }
+
+  &__footer-text {
+    margin: 0;
+    font-size: 0.75rem;
+    color: $color-muted;
+  }
+}

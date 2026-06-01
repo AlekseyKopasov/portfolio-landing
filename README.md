@@ -1,6 +1,6 @@
 # Portfolio Landing — 8-bit NES Developer Presentation
 
-Лендинг-презентация для тестового задания. Полное ТЗ: [SPEC.md](./SPEC.md).
+Лендинг-презентация.
 
 ## Стек
 
@@ -46,10 +46,6 @@ npx vercel dev
 5. Deploy. Каждый `push` в `main` обновляет production.
 
 Preview-деплои создаются автоматически для Pull Request.
-
-## Статус реализации
-
-См. чеклист в [SPEC.md §12](./SPEC.md#12-критерии-приёмки-чеклист).
 
 ## AI
 

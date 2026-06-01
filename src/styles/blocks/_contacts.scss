@@ -1,0 +1,30 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-sm;
+  margin: 0 0 $space-lg;
+  padding: 0;
+  list-style: none;
+
+  &__link {
+    display: inline-block;
+    padding: $space-sm $space-md;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: $color-text;
+    text-decoration: none;
+    background: $color-panel-dark;
+    border: 2px solid $color-border;
+
+    &:hover {
+      color: $color-accent-soft;
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+  }
+}
