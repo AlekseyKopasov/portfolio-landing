@@ -1,3 +1,17 @@
+type AiStatusType = 'idle' | 'loading' | 'success' | 'error' | 'unavailable';
+
+function setAiStatus(
+  el: HTMLElement,
+  type: AiStatusType,
+  message: string,
+): void {
+  el.className = 'form__ai-status';
+  if (type !== 'idle') {
+    el.classList.add(`form__ai-status--${type}`);
+  }
+  el.textContent = message;
+}
+
 export function initAiPolish(): void {
   const comment = document.getElementById('comment') as HTMLTextAreaElement | null;
   const polishBtn = document.getElementById('ai-polish-btn') as HTMLButtonElement | null;
@@ -5,25 +19,36 @@ export function initAiPolish(): void {
 
   if (!comment || !polishBtn || !aiStatus) return;
 
-  const setAiStatus = (type: 'idle' | 'loading' | 'success' | 'error', message: string) => {
-    aiStatus.className = 'form__ai-status';
-    if (type !== 'idle') {
-      aiStatus.classList.add(`form__ai-status--${type}`);
+  void (async () => {
+    try {
+      const res = await fetch('/api/ai/status');
+      const data = (await res.json()) as { configured?: boolean };
+
+      if (!data.configured) {
+        polishBtn.disabled = true;
+        polishBtn.title = 'Добавьте OPENAI_API_KEY в Vercel → Environment Variables';
+        setAiStatus(
+          aiStatus,
+          'unavailable',
+          'AI на проде не подключён — комментарий можно написать вручную. Ключ: OPENAI_API_KEY в Vercel.',
+        );
+      }
+    } catch {
+      /* при локальном npm run dev без vercel dev — проверка недоступна, кнопка остаётся активной */
     }
-    aiStatus.textContent = message;
-  };
+  })();
 
   polishBtn.addEventListener('click', async () => {
     const text = comment.value.trim();
 
     if (text.length < 3) {
-      setAiStatus('error', 'Сначала набросайте мысль в комментарии (от 3 символов).');
+      setAiStatus(aiStatus, 'error', 'Сначала набросайте мысль в комментарии (от 3 символов).');
       comment.focus();
       return;
     }
 
     polishBtn.disabled = true;
-    setAiStatus('loading', 'AI переформулирует текст...');
+    setAiStatus(aiStatus, 'loading', 'AI переформулирует текст...');
 
     try {
       const response = await fetch('/api/ai/polish', {
@@ -39,22 +64,28 @@ export function initAiPolish(): void {
       };
 
       if (!response.ok) {
-        setAiStatus('error', data.message ?? data.error ?? 'AI недоступен. Отредактируйте текст вручную.');
+        setAiStatus(
+          aiStatus,
+          'error',
+          data.message ?? data.error ?? 'AI недоступен. Отредактируйте текст вручную.',
+        );
         return;
       }
 
       if (!data.text) {
-        setAiStatus('error', 'Пустой ответ AI. Попробуйте ещё раз.');
+        setAiStatus(aiStatus, 'error', 'Пустой ответ AI. Попробуйте ещё раз.');
         return;
       }
 
       comment.value = data.text;
-      setAiStatus('success', 'Готово. Проверьте текст перед отправкой.');
+      setAiStatus(aiStatus, 'success', 'Готово. Проверьте текст перед отправкой.');
       comment.focus();
     } catch {
-      setAiStatus('error', 'Нет связи с AI. Проверьте сеть или напишите вручную.');
+      setAiStatus(aiStatus, 'error', 'Нет связи с AI. Проверьте сеть или напишите вручную.');
     } finally {
-      polishBtn.disabled = false;
+      if (!polishBtn.title) {
+        polishBtn.disabled = false;
+      }
     }
   });
 }

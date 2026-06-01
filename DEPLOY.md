@@ -31,7 +31,22 @@ git push -u origin main
    | Install Command | `npm install` |
 
 5. **Deploy** (первый деплой без SMTP — форма вернёт 501, это ожидаемо).
-6. После этапа 4 формы: **Settings → Environment Variables** — скопировать из `.env.example`.
+6. **Settings → Environment Variables** — см. ниже (SMTP и AI).
+
+### Переменные для формы и AI
+
+| Переменная | Нужна для |
+|------------|-----------|
+| `SMTP_*`, `MAIL_FROM`, `MAIL_TO` | Отправка формы |
+| `OPENAI_API_KEY` | Кнопка **AI — CLEARER TEXT** |
+| `OPENAI_MODEL` | опционально, по умолчанию `gpt-4o-mini` |
+| `OPENAI_BASE_URL` | опционально, если не OpenAI (совместимый API) |
+
+После добавления переменных — **Deployments → Redeploy** (без redeploy env не подхватится).
+
+Проверка AI: откройте `https://ваш-сайт.vercel.app/api/ai/status` — должно быть `{"configured":true,...}`.
+
+Ключ OpenAI: [platform.openai.com/api-keys](https://platform.openai.com/api-keys) → Create secret key → вставить в Vercel (Production).
 
 ## 3. Автодеплой
 
