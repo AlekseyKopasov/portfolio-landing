@@ -289,7 +289,7 @@ ci: add github actions build check
 | 3 | Форма UI + состояния | ✅ |
 | 4 | `POST /api/contact` + SMTP | ✅ (нужны env на Vercel) |
 | 5 | README, полировка a11y/адаптив | ⬜ |
-| 6 | AI bonus | ⬜ |
+| 6 | AI bonus (`/api/ai/polish`) | ✅ |
 
 ---
 
@@ -301,7 +301,7 @@ ci: add github actions build check
 - [ ] Адаптив, БЭМ, валидная разметка
 - [ ] GitHub + ссылка на Vercel + README
 - [ ] `not-to-prod/` не в репозитории
-- [ ] AI — опционально, с описанием в README
+- [x] AI — `/api/ai/polish`, описание в README
 
 ---
 

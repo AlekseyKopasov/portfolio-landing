@@ -54,6 +54,63 @@
     min-height: 6rem;
   }
 
+  &__hint {
+    margin: $space-xs 0 0;
+    font-size: 0.8125rem;
+    color: $color-muted;
+  }
+
+  &__ai {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+    margin-top: $space-sm;
+  }
+
+  &__ai-btn {
+    align-self: flex-start;
+    padding: $space-sm $space-md;
+    font-family: $font-pixel;
+    font-size: 0.5rem;
+    line-height: 1.6;
+    color: $color-text;
+    cursor: pointer;
+    background: $color-panel-dark;
+    border: 2px solid $color-border;
+    box-shadow: 2px 2px 0 $color-border;
+
+    &:hover:not(:disabled) {
+      color: $color-accent-soft;
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+
+    &:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+  }
+
+  &__ai-status {
+    min-height: 1.25rem;
+    margin: 0;
+    font-size: 0.8125rem;
+
+    &--loading {
+      color: $color-accent-soft;
+    }
+
+    &--success {
+      color: $color-success;
+    }
+
+    &--error {
+      color: $color-error;
+    }
+  }
+
   &__error {
     min-height: 1.25rem;
     margin: $space-xs 0 0;

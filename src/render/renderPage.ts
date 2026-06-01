@@ -171,6 +171,13 @@ function renderContact(): string {
         <div class="form__field">
           <label class="form__label" for="comment">Комментарий *</label>
           <textarea class="form__textarea" id="comment" name="comment" rows="4" required></textarea>
+          <div class="form__ai">
+            <button class="form__ai-btn" type="button" id="ai-polish-btn">
+              AI — CLEARER TEXT
+            </button>
+            <p class="form__ai-status" id="ai-polish-status" aria-live="polite" aria-atomic="true"></p>
+          </div>
+          <p class="form__hint">AI предложит формулировку — вы можете отредактировать перед отправкой.</p>
           <p class="form__error" id="comment-error" role="alert"></p>
         </div>
 

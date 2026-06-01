@@ -1,3 +1,4 @@
+import { initAiPolish } from './features/aiPolish';
 import { initContactForm } from './features/contactForm';
 import { initNavigation } from './features/navigation';
 import { renderPage } from './render/renderPage';
@@ -12,3 +13,4 @@ if (!app) {
 app.innerHTML = renderPage();
 initNavigation();
 initContactForm();
+initAiPolish();
